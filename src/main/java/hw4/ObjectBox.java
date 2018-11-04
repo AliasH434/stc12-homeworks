@@ -9,9 +9,10 @@ class ObjectBox extends MathBox {
     private Set<Object> objectSet;
 
     public ObjectBox(int sizeObjectBox) {
+        objectSet = new HashSet<>();
     }
 
-    public Set<Object> convertNumberSet_toObjectSet(Set<Number> integerSet) {
+    public Set<Object> convertNumberSet_toObjectSet(Set<Number> integerSet) throws Exception {
 
         Set<Object> objectSet = new HashSet<Object>();
 
