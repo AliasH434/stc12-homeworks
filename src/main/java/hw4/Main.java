@@ -18,7 +18,7 @@ public class Main {
         ObjectBox objectBox = new ObjectBox(10);
         MathBox mathBox = new MathBox();
 
-        System.out.println(objectBox.dump());
+        System.out.println(objectBox);
         System.out.println("Метод Mathbox.Сумма элементов равна: " + mathBox.summator());
         System.out.println("Метод Mathbox.Коллекция после деления = " + mathBox.splitter(2));
         objectBox.addObject(222);

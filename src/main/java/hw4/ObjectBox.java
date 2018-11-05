@@ -6,20 +6,23 @@ import java.util.HashSet;
 import java.util.Set;
 
 class ObjectBox extends MathBox {
-    private Set<Object> objectSet;
+    private static Set<Object> objectSet;
 
     public ObjectBox(int sizeObjectBox) {
-        objectSet = new HashSet<>();
+        MySet mySet = new MySet(sizeObjectBox);
+        try {
+            convertNumberSet_toObjectSet((Set<Number>) mySet);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    public Set<Object> convertNumberSet_toObjectSet(Set<Number> integerSet) throws Exception {
+    public Set<Object> convertNumberSet_toObjectSet(MySet numberSet) throws Exception {
 
-        Set<Object> objectSet = new HashSet<Object>();
-
-        for (Number integer : integerSet) {
-            objectSet.add(integer);
+        objectSet = new HashSet<Object>();
+        for (MySet nums : numberSet) {
+            objectSet.add(nums);
         }
-
         return objectSet;
     }
 
@@ -32,7 +35,7 @@ class ObjectBox extends MathBox {
         for (Object element : objectSet) {
             if (element.equals(object)) {
                 System.out.println("Элемент " + element + " найден!");
-            }
+            } else System.out.println("Данный объект не найден.");
         }
     }
 

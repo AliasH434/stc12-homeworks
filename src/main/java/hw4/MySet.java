@@ -5,10 +5,10 @@ import java.util.Random;
 import java.util.Set;
 
 class MySet {
-    private Set<Number> classSet;
+    private Set<Number> numberSet;
 
     public MySet(int sizeClassSet) {
-        classSet = createMySet(sizeClassSet);
+        numberSet = createMySet(sizeClassSet);
     }
 
     public Set<Number> createMySet(int sizeMySet) {
@@ -22,10 +22,12 @@ class MySet {
     }
 
     public String dump() {
-        return "Коллекция mySet в кол-ве " + classSet.size() + " элементов = " + classSet;
+        return "Коллекция mySet в кол-ве " + numberSet.size() + " элементов = " + numberSet;
     }
 
+
     public Set<Number> getClassSet() {
-        return classSet;
+        return numberSet;
     }
 }
+
