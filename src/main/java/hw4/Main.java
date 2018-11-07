@@ -9,21 +9,23 @@ package hw4;
  *      У класса должен быть метод findObject, проверяющий наличие объекта в коллекции.
 
  *      Должен быть метод dump, выводящий содержимое коллекции в строку.
+ *
+ *      Вторая часть задания, творческая:
+
+Получившиеся классы MathBox и ObjectBox не имеют связи между собой. Это неправильно. Логичнее было бы сделать MathBox наследником ObjectBox. Необходимо сделать такую связь, правильно распределить поля и методы. Функциональность в целом должна сохраниться. Руководствуемся здравым смыслом и своей фантазией.
+
+Задание выполняется в одной ветке. Каждая часть в отдельном пакете.
  */
 
-import hw3.MathBox;
-
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NotNumberInSetException {
         ObjectBox objectBox = new ObjectBox(10);
-        MathBox mathBox = new MathBox();
-
-        System.out.println(objectBox);
-        System.out.println("Метод Mathbox.Сумма элементов равна: " + mathBox.summator());
-        System.out.println("Метод Mathbox.Коллекция после деления = " + mathBox.splitter(2));
-        objectBox.addObject(222);
-        objectBox.addObject(333);
         System.out.println(objectBox.dump());
-        objectBox.findObject(2);
+        System.out.println("Сумма элементов objectBox равна : " + objectBox.summator());
+        System.out.println("Коллекция после деления objectBox будет: " + objectBox.splitter(2));
+//        objectBox.addObject(222);
+//        objectBox.addObject(333);
+//        System.out.println(objectBox.dump());
+//        objectBox.findObject(2);
     }
 }
