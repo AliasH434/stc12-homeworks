@@ -1,4 +1,4 @@
-package ru.innopolis.stc12.hw5;
+package hw5;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;

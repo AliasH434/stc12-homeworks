@@ -1,4 +1,4 @@
-package ru.innopolis.stc12.hw5;
+package hw5;
 
 /*Существует класс Employee с полями name, age, salary, job. Типы необходимо выбрать самостоятельно. Задание:
 

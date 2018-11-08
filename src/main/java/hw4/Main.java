@@ -19,13 +19,13 @@ package hw4;
 
 public class Main {
     public static void main(String[] args) throws NotNumberInSetException {
-        ObjectBox objectBox = new ObjectBox(10);
+        ObjectBox objectBox = new ObjectBox(50);
         System.out.println(objectBox.dump());
         System.out.println("Сумма элементов objectBox равна : " + objectBox.summator());
         System.out.println("Коллекция после деления objectBox будет: " + objectBox.splitter(2));
-//        objectBox.addObject(222);
-//        objectBox.addObject(333);
-//        System.out.println(objectBox.dump());
-//        objectBox.findObject(2);
+        objectBox.addObject("222");
+        objectBox.addObject(333);
+        System.out.println(objectBox.dump());
+        objectBox.findObject(2);
     }
 }

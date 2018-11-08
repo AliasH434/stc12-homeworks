@@ -3,12 +3,23 @@ package hw4;
 import java.util.HashSet;
 import java.util.Set;
 
-class ObjectBox {
+public class ObjectBox {
     private static Set<Object> objectSet;
 
     public ObjectBox(int sizeObjectBox) throws NotNumberInSetException {
         MySet mySet = new MySet(sizeObjectBox);
         checkNumberSetToObjectSet(mySet);
+    }
+
+    public ObjectBox() {
+    }
+
+    public Set<Object> getObjectSet() {
+        return objectSet;
+    }
+
+    public static void setObjectSet(Set<Object> objectSet) {
+        ObjectBox.objectSet = objectSet;
     }
 
     public Set<Object> checkNumberSetToObjectSet(MySet numberSet) throws NotNumberInSetException {
@@ -34,15 +45,16 @@ class ObjectBox {
     }
 
     public Set<Double> splitter(int div) {
-        Set newSet = new HashSet<>(objectSet.size());
+        Set<Double> newSet = new HashSet<>();
         for (Object element : objectSet) {
-            double newElement = (double) element / div;
+            Double d = Double.parseDouble(String.valueOf(element));
+            double newElement = d / (double) div;
             newSet.add(newElement);
         }
         return newSet;
     }
 
-    public void addObject(Object object) {
+    public void addObject(Object object) throws NotNumberInSetException {
         objectSet.add(object);
     }
 
@@ -51,7 +63,7 @@ class ObjectBox {
         for (Object element : objectSet) {
             if (element.equals(object)) {
                 System.out.println("Элемент " + element + " найден!");
-            } else System.out.println("Данный объект не найден.");
+            }
         }
     }
 
