@@ -29,7 +29,7 @@ public class ObjectBox {
             if (nums instanceof Number) {
 
             } else {
-                throw new NotNumberInSetException("Value in Set is not a Number: " + nums);
+                throw new NotNumberInSetException("Значение в коллекции не Number: " + nums);
             }
         }
 
@@ -54,9 +54,18 @@ public class ObjectBox {
         return newSet;
     }
 
-    public void addObject(Object object) throws NotNumberInSetException {
-        objectSet.add(object);
+    public void addObject(Object object) {
+        try {
+            if (object instanceof Number) {
+                objectSet.add(object);
+            } else {
+                throw new NotNumberInSetException("Значение в коллекции не Number: " + object);
+            }
+        } catch (NotNumberInSetException e) {
+            System.out.println("Собственное Исключение сработало!");
+        }
     }
+
 
 
     public void findObject(Object object) {

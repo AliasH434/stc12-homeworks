@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
-class MySet {
+public class MySet {
     private Set<Number> numberSet;
 
     public MySet(int sizeClassSet) {
