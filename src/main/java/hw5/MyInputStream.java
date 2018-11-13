@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class MyInputStream {
 
-    public static void readArrayEmployee() {
+    public static void readEmployeeOnFile() {
         try (DataInputStream dataInput = new DataInputStream(new FileInputStream("notes.txt"))) {
             while (dataInput.available() > 0) {
                 String name = dataInput.readUTF();

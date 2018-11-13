@@ -14,14 +14,6 @@ public class Employee {
         this.job = job;
     }
 
-    public static boolean save(Employee employee) {
-        boolean ifRecordSuccess = false;
-        MyOutputStream myOutputStream = new MyOutputStream();
-        myOutputStream.outputEmployee(employee);
-        ifRecordSuccess = true;
-        return ifRecordSuccess;
-    }
-
     public String getName() {
         return name;
     }
@@ -54,30 +46,45 @@ public class Employee {
         this.job = job;
     }
 
-/*    public static boolean delete(Employee employee) {
+    public static boolean save(Employee employee) {
         boolean ifRecordSuccess = false;
-        ArrayList<Employee> employees;
-        if (employees.contains(employee)) {
-            employees.remove(employee);
-            File tempFile = new File("notes2.txt");
-            try (DataOutputStream dataOutput = new DataOutputStream(new FileOutputStream(tempFile))) {
-                dataOutput.writeUTF(employee.getName());
-                dataOutput.writeInt(employee.getAge());
-                dataOutput.writeInt(employee.getSalary());
-                dataOutput.writeUTF(employee.getJob());
-            } catch (IOException ex) {
-                System.out.println(ex.getMessage());
-            }
-
-            ifRecordSuccess = true;
-        }
+        MyOutputStream myOutputStream = new MyOutputStream();
+        myOutputStream.outputEmployeeToFile(employee);
+        ifRecordSuccess = true;
         return ifRecordSuccess;
     }
 
-    public static boolean getByName (String name){
+    public static boolean delete(Employee employee) {
         boolean ifRecordSuccess = false;
-
+//        ArrayList<Employee> employees = MyInputStream.readEmployeeOnFile();
+//
+//        if (employees.contains(employee)) {
+//            employees.remove(employee);
+//            File tempFile = new File("notes2.txt");
+//            try (DataOutputStream dataOutput = new DataOutputStream(new FileOutputStream(tempFile))) {
+//                dataOutput.writeUTF(employee.getName());
+//                dataOutput.writeInt(employee.getAge());
+//                dataOutput.writeInt(employee.getSalary());
+//                dataOutput.writeUTF(employee.getJob());
+//            } catch (IOException ex) {
+//                System.out.println(ex.getMessage());
+//            }
+//
+//            ifRecordSuccess = true;
+//        }
         return ifRecordSuccess;
     }
-*/
+
+    public static boolean getByName(String name) {
+        boolean ifRecordSuccess = false;
+        MyInputStream.readEmployeeOnFile();
+
+//        for (Employee employee : employees) {
+//            if (name.equals(employee.getName())) {
+//                return employee;
+//            }
+//        }
+        return ifRecordSuccess;
+    }
+
 }

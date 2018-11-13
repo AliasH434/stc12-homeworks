@@ -32,7 +32,7 @@ public class Main {
         Employee.save(employee1);
         Employee.save(employee2);
         Employee.save(employee3);
-        //     Employee.delete(employee2);
+        Employee.delete(employee2);
 
         Employee newEmployee = new Employee("Egor", 18, 0, "Non job ");
         Employee.save(newEmployee);
