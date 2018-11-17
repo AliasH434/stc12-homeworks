@@ -1,5 +1,9 @@
 package hw5;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Employee {
 
     private String name;
@@ -48,36 +52,32 @@ public class Employee {
 
     public static boolean save(Employee employee) {
         boolean ifRecordSuccess = false;
-        MyOutputStream myOutputStream = new MyOutputStream();
-        myOutputStream.outputEmployeeToFile(employee);
+        WriteToFile writeToFile = new WriteToFile();
+        writeToFile.outputEmployeeToFile(employee);
         ifRecordSuccess = true;
         return ifRecordSuccess;
     }
 
     public static boolean delete(Employee employee) {
         boolean ifRecordSuccess = false;
-//        ArrayList<Employee> employees = MyInputStream.readEmployeeOnFile();
-//
-//        if (employees.contains(employee)) {
-//            employees.remove(employee);
-//            File tempFile = new File("notes2.txt");
-//            try (DataOutputStream dataOutput = new DataOutputStream(new FileOutputStream(tempFile))) {
-//                dataOutput.writeUTF(employee.getName());
-//                dataOutput.writeInt(employee.getAge());
-//                dataOutput.writeInt(employee.getSalary());
-//                dataOutput.writeUTF(employee.getJob());
-//            } catch (IOException ex) {
-//                System.out.println(ex.getMessage());
-//            }
-//
-//            ifRecordSuccess = true;
-//        }
+        List<String> listOfEmpl = new ArrayList<String>();
+        ReadFile readFile = new ReadFile();
+        listOfEmpl = readFile.readEmployeeOnFile();
+
+        System.out.println("\ndelete method");
+        System.out.println(listOfEmpl);
+
+
+        File tempFile = new File("notes2.txt");
+
+
         return ifRecordSuccess;
     }
 
     public static boolean getByName(String name) {
         boolean ifRecordSuccess = false;
-        MyInputStream.readEmployeeOnFile();
+        ReadFile readFile = new ReadFile();
+        readFile.readEmployeeOnFile();
 
 //        for (Employee employee : employees) {
 //            if (name.equals(employee.getName())) {

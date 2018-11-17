@@ -1,10 +1,11 @@
 package hw5;
 
 import java.io.DataOutputStream;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class MyOutputStream {
+public class WriteToFile {
 
     public void outputEmployeeToFile(Employee employee) {
         try (DataOutputStream dataOutput = new DataOutputStream(new FileOutputStream("notes.txt", true))) {
@@ -15,5 +16,11 @@ public class MyOutputStream {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
+    }
+
+    public void clearFileEmployee() {
+        File file = new File("notes.txt");
+        file.delete();
+        System.out.println("File is cleared");
     }
 }

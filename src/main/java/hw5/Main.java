@@ -25,6 +25,9 @@ public class Main {
         Employee employee2 = new Employee("Mars", 33, 60000, "Nizhnekamskneftehim ");
         Employee employee3 = new Employee("Serega", 33, 40000, "Nizhnekamskshina ");
 
+        WriteToFile writeToFile = new WriteToFile();
+        writeToFile.clearFileEmployee();
+
         employees.add(employee1);
         employees.add(employee2);
         employees.add(employee3);
@@ -32,13 +35,16 @@ public class Main {
         Employee.save(employee1);
         Employee.save(employee2);
         Employee.save(employee3);
-        Employee.delete(employee2);
 
-        Employee newEmployee = new Employee("Egor", 18, 0, "Non job ");
+        Employee newEmployee = new Employee("Egor", 18, 0, "No job ");
         Employee.save(newEmployee);
 
+        Employee.delete(employee1);
 
-        //     MyInputStream.readArrayEmployee();
+        ReadFile readFile = new ReadFile();
+
+        System.out.println("read method");
+        readFile.readEmployeeOnFile();
 
     }
 
