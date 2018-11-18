@@ -6,14 +6,15 @@ package hw6;
  */
 
 public class FirstThread extends Thread {
-    Object time;
+    long start = System.currentTimeMillis();
 
-    public void setTime(Object time) {
-        this.time = time;
+    public void FirstThread() {
+        this.start = start;
     }
 
     @Override
     public void run() {
-
+        long timeWorkCode = System.currentTimeMillis() - start;
+        System.out.println(timeWorkCode);
     }
 }

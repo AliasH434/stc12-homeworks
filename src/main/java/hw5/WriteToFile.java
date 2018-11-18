@@ -9,6 +9,7 @@ public class WriteToFile {
 
     public void outputEmployeeToFile(Employee employee) {
         try (DataOutputStream dataOutput = new DataOutputStream(new FileOutputStream("notes.txt", true))) {
+            dataOutput.writeInt(employee.getEmployeeID());
             dataOutput.writeUTF(employee.getName());
             dataOutput.writeInt(employee.getAge());
             dataOutput.writeInt(employee.getSalary());
@@ -21,6 +22,5 @@ public class WriteToFile {
     public void clearFileEmployee() {
         File file = new File("notes.txt");
         file.delete();
-        System.out.println("File is cleared");
     }
 }

@@ -1,17 +1,14 @@
 package hw6;
 
-/*
-Не внося изменений в код потока-"хронометра" , добавьте еще один поток, который выводит на
-экран другое сообщение каждые 7 секунд
- */
-
 public class ThirdThread extends Thread {
-    Object monitor;
+    String massage;
 
-    public void setMonitor(Object monitor) {
-        this.monitor = monitor;
+    public void setWord(String string) {
+        this.massage = massage;
     }
 
     @Override
     public void run() {
+        System.out.println(massage);
     }
+}
