@@ -26,9 +26,9 @@ public class ReadFile {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
-        for (String emp : employeeList) {
-            System.out.println(emp);
-        }
+//        for (String emp : employeeList) {
+//            System.out.println(emp);
+//        }
         return employeeList;
     }
 }

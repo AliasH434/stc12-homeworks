@@ -19,15 +19,6 @@ public class Employee {
         this.job = job;
     }
 
-    public static boolean save(Employee employee) {
-        boolean ifRecordSuccess = false;
-        WriteToFile writeToFile = new WriteToFile();
-        writeToFile.outputEmployeeToFile(employee);
-        System.out.println("Добавлена запись о сотруднике " + employee.employeeID);
-        ifRecordSuccess = true;
-        return ifRecordSuccess;
-    }
-
     public static boolean delete(Employee employee) {
         boolean ifRecordSuccess = false;
         List<String> listOfEmpl = new ArrayList<String>();
@@ -37,7 +28,6 @@ public class Employee {
         listOfEmpl = readFile.readEmployeeOnFile();
 
         for (String emp : listOfEmpl) {
-
             if (!emp.contains("Employee ID: " + employee.getEmployeeID())) {
                 newListOfEmpl.add(emp);
                 ifRecordSuccess = true;
@@ -65,9 +55,24 @@ public class Employee {
             }
             writeToFile.outputEmployeeToFile(new Employee(id, name, age, salary, job));
         }
-
-
+        for (String emp : newListOfEmpl) {
+            System.out.println(emp);
+        }
         return ifRecordSuccess;
+    }
+
+    public static Employee getByStringObject(String object) {
+
+        List<String> listOfEmpl = new ArrayList<String>();
+        ReadFile readFile = new ReadFile();
+        listOfEmpl = readFile.readEmployeeOnFile();
+
+        for (String emp : listOfEmpl) {
+            if (emp.contains(object)) {
+                System.out.println(emp);
+            }
+        }
+        return null;
     }
 
     public String getName() {
@@ -102,18 +107,13 @@ public class Employee {
         this.job = job;
     }
 
-    public static Employee getByName(String name) {
-
-        List<String> listOfEmpl = new ArrayList<String>();
-        ReadFile readFile = new ReadFile();
-        listOfEmpl = readFile.readEmployeeOnFile();
-
-        for (String emp : listOfEmpl) {
-            if (emp.contains(name)) {
-                System.out.println(emp);
-            }
-        }
-        return null;
+    public static boolean save(Employee employee) {
+        boolean ifRecordSuccess = false;
+        WriteToFile writeToFile = new WriteToFile();
+        writeToFile.outputEmployeeToFile(employee);
+        System.out.println("Добавлена запись о сотруднике " + employee.employeeID);
+        ifRecordSuccess = true;
+        return ifRecordSuccess;
     }
 
     public int getEmployeeID() {
@@ -124,4 +124,28 @@ public class Employee {
         this.employeeID = employeeID;
     }
 
+//    public static boolean saveOrUpdate (String object, String updateObject) {
+//        boolean ifRecordSuccess = false;
+//        List<String> listOfEmpl = new ArrayList<String>();
+//        List<String> newListOfEmpl = new ArrayList<String>();
+//
+//        ReadFile readFile = new ReadFile();
+//        listOfEmpl = readFile.readEmployeeOnFile();
+//
+//        for (String emp : listOfEmpl) {
+//            if (emp.contains(object)) {
+//                object = updateObject;
+//                newListOfEmpl.add(emp);
+//                WriteToFile writeToFile = new WriteToFile();
+//                writeToFile.outputEmployeeToFile((Employee) newListOfEmpl);
+//                ifRecordSuccess = true;
+//            }
+//        }
+//        for (String emp : listOfEmpl) {
+//            if (emp.contains(updateObject)) {
+//                System.out.println(emp);
+//            }
+//        }
+//        return ifRecordSuccess;
+//    }
 }
