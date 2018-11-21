@@ -11,28 +11,25 @@ notifyAll() по какому-то монитору, общему для все�
 Бонус: Пакет Concurrent, перевод примеров на Lock  вместо синхронизации через wait-notify
  */
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Main {
 
-    public static void main(String[] args) {
-        Object monitor = new Object();
-        List<Thread> threadList = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
-            MonitorThread thread = new MonitorThread();
-            thread.setMonitor(monitor);
-            thread.start();
-            threadList.add(thread);
+    public Main(int lifetime) throws InterruptedException {
+        FirstThread firstThread = new FirstThread();
+        SecondThread secondThread = new SecondThread(5000, "Hello ");
+        ThirdThread thirdThread = new ThirdThread(7000, "my friend");
+        firstThread.start();
+        secondThread.start();
+        thirdThread.start();
+        Thread.sleep(lifetime * 1000 + 100);
+        firstThread.interrupt();
+        secondThread.interrupt();
+        thirdThread.interrupt();
+    }
 
-        }
-        for (Thread thread : threadList) {
-            try {
-                thread.join();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-        System.out.println("finished");
+    public static void main(String[] args) throws InterruptedException {
+        new Main(15);
     }
 }
+
+
+

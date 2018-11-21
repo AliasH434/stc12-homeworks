@@ -1,23 +1,25 @@
 package hw6;
 
 public class MonitorThread extends Thread {
-    Object monitor;
 
-    public void setMonitor(Object monitor) {
+    private Object monitor;
+
+    public MonitorThread(Object monitor) {
         this.monitor = monitor;
     }
 
     @Override
     public void run() {
-        System.out.println(Thread.currentThread().getName() + " started");
-        synchronized (monitor) {
-            System.out.println(Thread.currentThread().getName() + " locked monitor");
-            try {
-                Thread.sleep(300);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+        while (Thread.currentThread().isAlive()) {
+            synchronized (monitor) {
+                try {
+                    monitor.wait(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                this.monitor.notifyAll();
             }
-            System.out.println(Thread.currentThread().getName() + "releasing monitor");
+
         }
     }
 }

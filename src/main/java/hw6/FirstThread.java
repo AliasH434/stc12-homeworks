@@ -1,20 +1,23 @@
 package hw6;
 
-/*
-один поток которой каждую секунду отображает на экране данные о времени,
-прошедшем от начала сессии
- */
-
 public class FirstThread extends Thread {
-    long start = System.currentTimeMillis();
 
-    public void FirstThread() {
-        this.start = start;
+    private long time = System.currentTimeMillis();
+
+    public FirstThread() {
+        this.time = time;
     }
 
-    @Override
-    public void run() {
-        long timeWorkCode = System.currentTimeMillis() - start;
-        System.out.println(timeWorkCode);
+    public synchronized void run() {
+        while (!Thread.currentThread().isInterrupted()) {
+            try {
+                Thread.sleep(1000);
+                long timeWorkCode = System.currentTimeMillis() - time;
+                System.out.println(timeWorkCode / 1000);
+            } catch (InterruptedException ex) {
+                Thread.currentThread().interrupt();
+            }
+        }
     }
 }
+
