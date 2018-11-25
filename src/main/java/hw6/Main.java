@@ -28,6 +28,7 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException {
         new Main(15);
+        System.out.println("Программа завершена");
     }
 }
 

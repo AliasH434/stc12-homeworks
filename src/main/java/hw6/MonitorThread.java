@@ -4,7 +4,7 @@ public class MonitorThread extends Thread {
 
     private Object monitor;
 
-    public MonitorThread(Object monitor) {
+    public void setMonitor(Object monitor) {
         this.monitor = monitor;
     }
 
