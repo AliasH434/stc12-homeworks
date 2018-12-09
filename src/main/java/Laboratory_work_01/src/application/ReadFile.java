@@ -1,5 +1,7 @@
 package Laboratory_work_01.src.application;
 
+import org.apache.log4j.Logger;
+
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -7,6 +9,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ReadFile {
+
+    private static Logger LOGGER = Logger.getLogger(ReadFile.class);
 
     public static final String RESULT_FILE = "D:\\00_Programming\\JavaEE\\ru\\innopolis\\Homeworks\\src\\main\\java\\Laboratory_work_01\\src\\res\\ResultOfSearch.txt";
     private static String sourcesFile = "D:\\00_Programming\\JavaEE\\ru\\innopolis\\Homeworks\\src\\main\\java\\Laboratory_work_01\\src\\res\\Sources.txt";
@@ -42,7 +46,7 @@ public class ReadFile {
                 lines.add(line);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.error(e.getMessage());
         }
         String[] sources = new String[lines.size()];
         lines.toArray(sources);
@@ -67,8 +71,9 @@ public class ReadFile {
                 writer.write(string + "\n");
                 writer.flush();
             }
+
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.error(e.getMessage());
         }
     }
 

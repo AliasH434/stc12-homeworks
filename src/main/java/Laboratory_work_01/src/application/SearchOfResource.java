@@ -1,11 +1,15 @@
 package Laboratory_work_01.src.application;
 
+import org.apache.log4j.Logger;
+
 import java.io.*;
 import java.net.URL;
 import java.util.HashSet;
 import java.util.Scanner;
 
 public class SearchOfResource implements Runnable {
+
+    private static Logger LOGGER = Logger.getLogger(SearchOfResource.class);
 
     private String source = null;
     private HashSet<String> wordsSet = null;
@@ -19,7 +23,7 @@ public class SearchOfResource implements Runnable {
 
     @Override
     public void run() {
-        System.out.println("Thread " + Thread.currentThread().getName() + " run");
+        LOGGER.info("Thread " + Thread.currentThread().getName() + " run");
         startTheSearch();
     }
 
@@ -62,13 +66,13 @@ public class SearchOfResource implements Runnable {
             try {
                 sourceScanner = new Scanner(new URL(source).openStream());
             } catch (IOException e) {
-                e.printStackTrace();
+                LOGGER.error(e.getMessage());
             }
         } else {
             try {
                 sourceScanner = new Scanner(new File(source));
             } catch (FileNotFoundException e) {
-                e.printStackTrace();
+                LOGGER.error(e.getMessage());
             }
         }
         return sourceScanner;
@@ -81,7 +85,7 @@ public class SearchOfResource implements Runnable {
                 writer.write(String.valueOf(string) + "\n");
                 writer.flush();
             } catch (IOException e) {
-                e.printStackTrace();
+                LOGGER.error(e.getMessage());
             }
         }
     }

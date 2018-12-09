@@ -23,10 +23,14 @@ void getOccurencies(String[] sources, String[] words, String res) throws …;
 import Laboratory_work_01.src.application.Occurencies;
 import Laboratory_work_01.src.application.OccurenciesResource;
 import Laboratory_work_01.src.application.ReadFile;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 import java.io.IOException;
 
 public class Main {
+
+    private static final Logger LOGGER = Logger.getLogger(Main.class);
 
     public static void main(String[] args) {
         String sources1 = "D:\\00_Programming\\JavaEE\\ru\\innopolis\\Homeworks\\src\\main\\java\\Laboratory_work_01\\test\\less1Gb\\";
@@ -36,13 +40,11 @@ public class Main {
         ReadFile.writeToSourcesFile(sources1);
 
         Occurencies occurencies = new OccurenciesResource();
+        PropertyConfigurator.configure("log4j.properties");
         try {
             occurencies.getOccurencies(ReadFile.getSources(), ReadFile.getWords(), ReadFile.RESULT_FILE);
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.error(e.getMessage());
         }
-
     }
-
-
 }
