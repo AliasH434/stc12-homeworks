@@ -1,0 +1,4 @@
+D:\00_Programming\JavaEE\ru\innopolis\Homeworks\src\main\java\Laboratory_work_01\test\less1Gb\Война и мир. Том 1.Лев Толстой.txt
+D:\00_Programming\JavaEE\ru\innopolis\Homeworks\src\main\java\Laboratory_work_01\test\less1Gb\Война и мир.Том 2.Лев Толстой.txt
+D:\00_Programming\JavaEE\ru\innopolis\Homeworks\src\main\java\Laboratory_work_01\test\less1Gb\Война и мир.Том 3.Лев Толстой.txt
+D:\00_Programming\JavaEE\ru\innopolis\Homeworks\src\main\java\Laboratory_work_01\test\less1Gb\Война и мир.Том 4.Лев Толстой.txt
